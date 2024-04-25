@@ -169,7 +169,7 @@ $totalRevenueToday = $totalRevenueTodayRow['total_revenue'];
 // Daily Report
 $pdf->ChapterTitle('Daily Report');
 $pdf->ChapterBody("Date: " . date('Y-m-d') . "\n");
-$pdf->ChapterBody("Total Revenue Today: RM " . number_format($totalRevenueToday, 2));
+$pdf->ChapterBody("Total Revenue Today: BDT " . number_format($totalRevenueToday, 2));
 $pdf->Ln();
 
 // Calculate total revenue for this week (assuming week starts on Monday)
@@ -190,7 +190,7 @@ $totalRevenueThisWeek = $totalRevenueThisWeekRow['total_revenue'];
 // Weekly Report
 $pdf->ChapterTitle('Weekly Report');
 $pdf->ChapterBody("Date Range: " . $currentWeekStart . " to " . date('Y-m-d'));
-$pdf->ChapterBody("Total Revenue This Week: RM " . number_format($totalRevenueThisWeek, 2));
+$pdf->ChapterBody("Total Revenue This Week: BDT " . number_format($totalRevenueThisWeek, 2));
 $pdf->Ln();
 
 // Calculate total revenue for this month
@@ -211,7 +211,7 @@ $totalRevenueThisMonth = $totalRevenueThisMonthRow['total_revenue'];
 // Monthly Report
 $pdf->ChapterTitle('Monthly Report');
 $pdf->ChapterBody("Date Range: " . $currentMonthStart . " to " . date('Y-m-t'));
-$pdf->ChapterBody("Total Revenue This Month: RM " . number_format($totalRevenueThisMonth, 2));
+$pdf->ChapterBody("Total Revenue This Month: BDT " . number_format($totalRevenueThisMonth, 2));
 $pdf->Ln();
 
 // Calculate total revenue for this year
@@ -232,7 +232,7 @@ $totalRevenueThisYear = $totalRevenueThisYearRow['total_revenue'];
 // Yearly Report
 $pdf->ChapterTitle('Yearly Report');
 $pdf->ChapterBody("Date Range: " . $currentYear . "-01-01 to " . $currentYear . "-12-31");
-$pdf->ChapterBody("Total Revenue This Year: RM " . number_format($totalRevenueThisYear, 2));
+$pdf->ChapterBody("Total Revenue This Year: BDT " . number_format($totalRevenueThisYear, 2));
 $pdf->Ln();
 
 
@@ -248,7 +248,7 @@ $dailySQL = "SELECT DATE(Bills.bill_time) AS date,DAY(Bills.bill_time) AS day, S
 $dailyCategoryRevenue = getCategoryRevenue($link, $dailySQL);
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Daily Revenue Breakdown');
-$header = array('Date','Day' , 'Revenue (RM)');
+$header = array('Date','Day' , 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($dailyCategoryRevenue)) {
     $data[] = array($row['date'], $row['day'], $row['daily_category_revenue']);
@@ -267,7 +267,7 @@ $weeklySQL = "SELECT CONCAT(YEAR(Bills.bill_time), '-', MONTH(Bills.bill_time)) 
 $weeklyCategoryRevenue = getCategoryRevenue($link, $weeklySQL);
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Weekly Revenue Breakdown');
-$header = array('Date','Week' , 'Revenue (RM)');
+$header = array('Date','Week' , 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($weeklyCategoryRevenue)) {
     $data[] = array($row['year'], $row['week'], $row['weekly_category_revenue']);
@@ -287,7 +287,7 @@ $monthlySQL = "SELECT CONCAT(YEAR(Bills.bill_time), '-', MONTH(Bills.bill_time))
 $monthlyCategoryRevenue = getCategoryRevenue($link, $monthlySQL);
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Monthly Revenue Breakdown');
-$header = array('Date','Month' , 'Revenue (RM)');
+$header = array('Date','Month' , 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($monthlyCategoryRevenue)) {
     $data[] = array($row['year'], $row['month'], $row['monthly_category_revenue']);
@@ -352,7 +352,7 @@ $yearlyCategoryRevenue = getCategoryRevenue($link, $yearlySQL);
 
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Daily Revenue Breakdown by Item Category');
-$header = array('Date','Day' , 'Item Category', 'Revenue (RM)');
+$header = array('Date','Day' , 'Item Category', 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($dailyCategoryRevenue)) {
     $data[] = array($row['date'], $row['day'], $row['item_category'], $row['daily_category_revenue']);
@@ -364,7 +364,7 @@ $pdf->AddPage();
 $pdf->Ln();
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Weekly Revenue Breakdown by Item Category');
-$header = array('Date','Week' , 'Item Category', 'Revenue (RM)');
+$header = array('Date','Week' , 'Item Category', 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($weeklyCategoryRevenue)) {
     $data[] = array($row['year'], $row['week'], $row['item_category'], $row['weekly_category_revenue']);
@@ -375,7 +375,7 @@ $pdf->Ln();
 $pdf->AddPage();
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Monthly Revenue Breakdown by Item Category');
-$header = array('Date','Month' , 'Item Category', 'Revenue (RM)');
+$header = array('Date','Month' , 'Item Category', 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($monthlyCategoryRevenue)) {
     $data[] = array($row['year'], $row['month'], $row['item_category'], $row['monthly_category_revenue']);
@@ -385,7 +385,7 @@ $pdf->CustomTableFourColumn($header, $data);
 $pdf->AddPage();
 // Display the revenue breakdown by item category in a tabular format
 $pdf->ChapterTitle('Yearly Revenue Breakdown by Item Category');
-$header = array('Date', 'Item Category', 'Revenue (RM)');
+$header = array('Date', 'Item Category', 'Revenue (BDT)');
 $data = array();
 while ($row = mysqli_fetch_assoc($yearlyCategoryRevenue)) {
     $data[] = array($row['year'], $row['item_category'], $row['yearly_category_revenue']);

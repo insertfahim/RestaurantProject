@@ -49,9 +49,9 @@ $bill_id = $_GET['bill_id'];
                     echo '<tr>';
                     echo '<td>' . $item_id . '</td>';
                     echo '<td>' . $item_name . '</td>';
-                    echo '<td>RM ' . number_format($item_price,2) . '</td>';
+                    echo '<td>BDT ' . number_format($item_price,2) . '</td>';
                     echo '<td>' . $quantity . '</td>';
-                    echo '<td>RM ' . number_format($total,2) . '</td>';
+                    echo '<td>BDT ' . number_format($total,2) . '</td>';
                     echo '</tr>';
                 }
             } else {
@@ -64,10 +64,10 @@ $bill_id = $_GET['bill_id'];
                     <hr>
                     <div class="text-right">
                         <?php 
-                        echo "<strong>Total:</strong> RM " . number_format($cart_total, 2) . "<br>";
-                        echo "<strong>Tax (10%):</strong> RM " . number_format($cart_total * $tax, 2) . "<br>";
+                        echo "<strong>Total:</strong> BDT " . number_format($cart_total, 2) . "<br>";
+                        echo "<strong>Tax (10%):</strong> BDT " . number_format($cart_total * $tax, 2) . "<br>";
                         $GRANDTOTAL = $tax * $cart_total + $cart_total;
-                        echo "<strong>Grand Total:</strong> RM " . number_format($GRANDTOTAL, 2);
+                        echo "<strong>Grand Total:</strong> BDT " . number_format($GRANDTOTAL, 2);
                         ?>
                     </div>
                 </div>

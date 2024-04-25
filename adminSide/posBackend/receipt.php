@@ -81,9 +81,9 @@ while ($item_row = mysqli_fetch_assoc($items_result)) {
     $cart_total += $total;
 
     $pdf->Cell(70, 10, $item_name, 1);
-    $pdf->Cell(40, 10, 'RM ' . number_format($item_price,2), 1);
+    $pdf->Cell(40, 10, 'BDT ' . number_format($item_price,2), 1);
     $pdf->Cell(40, 10, $quantity, 1);
-    $pdf->Cell(40, 10, 'RM ' . number_format($total,2), 1);
+    $pdf->Cell(40, 10, 'BDT ' . number_format($total,2), 1);
     $pdf->Ln();
 }
 
@@ -97,15 +97,15 @@ $after_tax = $before_tax + $tax_amount;
 $pdf->Cell(150, 10, 'Summary:', 0);
 $pdf->Ln();
 $pdf->Cell(150, 10, 'Total', 1);
-$pdf->Cell(40, 10, 'RM ' . number_format($before_tax,2), 1);
+$pdf->Cell(40, 10, 'BDT ' . number_format($before_tax,2), 1);
 $pdf->Ln();
 
 $pdf->Cell(150, 10, 'Tax (' . ($tax_rate * 100) . '%)', 1);
-$pdf->Cell(40, 10, 'RM ' . number_format($tax_amount,2), 1);
+$pdf->Cell(40, 10, 'BDT ' . number_format($tax_amount,2), 1);
 $pdf->Ln();
 
 $pdf->Cell(150, 10, 'Grand Total', 1);
-$pdf->Cell(40, 10, 'RM ' . number_format($after_tax,2), 1);
+$pdf->Cell(40, 10, 'BDT ' . number_format($after_tax,2), 1);
 $pdf->Ln();
 
 $pdf->Output('Receipt-Bill_ID-' . $bill_id . '.pdf', 'D');
