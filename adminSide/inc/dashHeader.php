@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - Admin</title>
+        <title>Dashboard - SB Admin</title>
         <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -65,15 +65,6 @@
                             <a class="nav-link" href="../panel/kitchen-panel.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-kitchen-set"></i></div>
                                 Kitchen
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Report & Analytics</div>
-                            <a class="nav-link" href="../panel/sales-panel.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-fire"></i></div>
-                                Items Sales
-                            </a>
-                            <a class="nav-link" href="../panel/statistics-panel.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Revenue Statistics
                             </a>
                             <a class="nav-link" href="../panel/profiles-panel.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
