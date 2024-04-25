@@ -239,7 +239,7 @@ VALUES
 
 -- Accounts table
 INSERT INTO Accounts (email, register_date, phone_number, password)
-VALUES ('john@gmail.com', '2023-08-31', '+1234567890', 'password123'),
+VALUES ('Fahim@gmail.com', '2023-08-31', '+1234567890', 'password123'),
        ('susan@gmail.com', '2023-08-30', '+1987654321', 'susanpassword'),
        ('james@gmail.com', '2023-08-29', '+18887776666', 'jamespass'),
        ('alice@gmail.com', '2023-08-28', '+15555555555', 'alicepassword'),
@@ -273,8 +273,8 @@ VALUES ('john@gmail.com', '2023-08-31', '+1234567890', 'password123'),
 
 -- Staffs table
 INSERT INTO Staffs (staff_name, role, account_id)
-VALUES ('John Smith', 'Waiter', 1),
-       ('Susan Johnson', 'Waiter', 2),
+VALUES ('Fahim Smith', 'Waiter', 1),
+       ('Susan Fahimson', 'Waiter', 2),
        ('James Brown', 'Waiter', 3),
        ('Alice Davis', 'Waiter', 4),
        ('Mike Wilson', 'Waiter', 5),
@@ -293,7 +293,7 @@ VALUES
        	('Abignail Downey ', 200,12),
        	('Jamie Mustafa', 300,13),
        	('Luke Gun Slinger', 400,14),
-       	('Johny Rings', 500,15),
+       	('Fahimy Rings', 500,15),
        	('Wee Tuu Low', 600,16),
        	('Sum Ting Wong', 700,17),
        	('Ho Lee Fuk', 800,18),
@@ -319,7 +319,7 @@ VALUES
 (2220232, 'Abignaile Lin Downney Jr', 2, '22:00:34', '2023-09-29', 1, 'Default Special Request'),
 (1920233, 'Jamie Mustafa', 3, '19:30:00', '2023-09-30', 2, 'Vegan options needed'),
 (2020234, 'Luke Gun Slinger', 4, '20:00:00', '2023-09-30', 3, 'Birthday celebration'),
-(1920235, 'Johny Rings', 5, '19:45:00', '2023-10-01', 2, 'Quiet corner, please'),
+(1920235, 'Fahimy Rings', 5, '19:45:00', '2023-10-01', 2, 'Quiet corner, please'),
 (1820237, 'Jean Ng', 7, '18:30:00', '2023-10-03', 2, 'Allergies: peanuts'),
 (1920239, 'Taylor Swift', 9, '19:15:00', '2023-10-05', 2, 'Surprise dessert for anniversary'),
 (1111111, 'Default', 9, '19:15:00', '2023-10-05', 2, 'Description'),
@@ -327,8 +327,8 @@ VALUES
 
 INSERT INTO card_payments (card_id, account_holder_name, card_number, expiry_date, security_code)
 VALUES
-('1', 'John Smith', '1234567890123456', '10/15', '123'),
-('2', 'Susan Johnson', '2345678901234567', '10/24', '456'),
+('1', 'Fahim Smith', '1234567890123456', '10/15', '123'),
+('2', 'Susan Fahimson', '2345678901234567', '10/24', '456'),
 ('3', 'James Brown', '3456789012345678', '09/30', '789'),
 ('4', 'Alice Davis', '4567890123456789', '09/28', '321'),
 ('5', 'Mike Wilson', '5678901234567890', '09/29', '654'),
