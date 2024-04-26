@@ -48,41 +48,4 @@
 | Admin | 99999 | 12345 |
 
 ## Screenshots
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/homehomepage.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/register.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/Login.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/homepageloggedin.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/reservation.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/stafflogin.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/postable.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/orderitembeforepay.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/addmemberidandreservationid.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/cashpaid.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/cardpayment.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/billdpanel.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/tablepanel.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/kitchenpanel.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/salespanel.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/statisticspanel.png?raw=true)
-![alt text](https://github.com/Brynlai/RestaurantProject/blob/main/RestaurantProjectImages/profilespanel.png?raw=true)
-
-[url=https://ibb.co/jbKZMqX][img]https://i.ibb.co/rFPf6qr/Screenshot-25.png[/img][/url]
-[url=https://ibb.co/Sx6BC5J][img]https://i.ibb.co/FWhzTmn/Screenshot-24.png[/img][/url]
-[url=https://ibb.co/Jt45grP][img]https://i.ibb.co/54yBwsV/Screenshot-23.png[/img][/url]
-[url=https://ibb.co/Vw0KKGD][img]https://i.ibb.co/5KX773v/Screenshot-22.png[/img][/url]
-[url=https://ibb.co/DbPP8rz][img]https://i.ibb.co/TTDDbWY/Screenshot-21.png[/img][/url]
-[url=https://ibb.co/qFB1ykN][img]https://i.ibb.co/4gWNmP8/Screenshot-20.png[/img][/url]
-[url=https://ibb.co/BN1njk6][img]https://i.ibb.co/wsvcCtQ/Screenshot-19.png[/img][/url]
-[url=https://ibb.co/vdb7N1P][img]https://i.ibb.co/PWR72xh/Screenshot-18.png[/img][/url]
-[url=https://ibb.co/QcFQ4RL][img]https://i.ibb.co/H2D4js6/Screenshot-17.png[/img][/url]
-[url=https://ibb.co/SrFHkZz][img]https://i.ibb.co/YZHJ5Vx/Screenshot-16.png[/img][/url]
-[url=https://ibb.co/4TNL4Fz][img]https://i.ibb.co/qs18mDK/Screenshot-15.png[/img][/url]
-[url=https://ibb.co/dLFwvfZ][img]https://i.ibb.co/KLdpg5n/Screenshot-14.png[/img][/url]
-[url=https://ibb.co/3RX1kdF][img]https://i.ibb.co/Rjn27b6/Screenshot-13.png[/img][/url]
-[url=https://ibb.co/TRQd0MC][img]https://i.ibb.co/BjhF621/Screenshot-12.png[/img][/url]
-[url=https://ibb.co/LvwSpF2][img]https://i.ibb.co/52DTc0f/Screenshot-11.png[/img][/url]
-[url=https://ibb.co/wdQzwKR][img]https://i.ibb.co/0n9GFfc/Screenshot-10.png[/img][/url]
-[url=https://ibb.co/B48TL4s][img]https://i.ibb.co/PTB1xTC/Screenshot-9.png[/img][/url]
-[url=https://ibb.co/SPtD8gz][img]https://i.ibb.co/R93GmKq/Screenshot-8.png[/img][/url]
-
-![Alt text](Screenshot_25.png) ![Alt text](Screenshot_8.png) ![Alt text](Screenshot_9.png) ![Alt text](Screenshot_10.png) ![Alt text](Screenshot_11.png) ![Alt text](Screenshot_12.png) ![Alt text](Screenshot_13.png) ![Alt text](Screenshot_14.png) ![Alt text](Screenshot_15.png) ![Alt text](Screenshot_16.png) ![Alt text](Screenshot_17.png) ![Alt text](Screenshot_18.png) ![Alt text](Screenshot_19.png) ![Alt text](Screenshot_20.png) ![Alt text](Screenshot_21.png) ![Alt text](Screenshot_22.png) ![Alt text](Screenshot_23.png) ![Alt text](Screenshot_24.png)
+![Alt text](Screenshot_25-1.png) ![Alt text](Screenshot_8-1.png) ![Alt text](Screenshot_9-1.png) ![Alt text](Screenshot_10-1.png) ![Alt text](Screenshot_11-1.png) ![Alt text](Screenshot_12-1.png) ![Alt text](Screenshot_13-1.png) ![Alt text](Screenshot_14-1.png) ![Alt text](Screenshot_15-1.png) ![Alt text](Screenshot_16-1.png) ![Alt text](Screenshot_17-1.png) ![Alt text](Screenshot_18-1.png) ![Alt text](Screenshot_19-1.png) ![Alt text](Screenshot_20-1.png) ![Alt text](Screenshot_21-1.png) ![Alt text](Screenshot_22-1.png) ![Alt text](Screenshot_23-1.png) ![Alt text](Screenshot_24-1.png)
