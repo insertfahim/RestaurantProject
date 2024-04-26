@@ -27,9 +27,6 @@
     * Print receipts
     * Manage CRUD operations
     * View user preferences
-    * Download reports
-    * View charts and graph
-
 
 
 **Steps to run the project locally :**
