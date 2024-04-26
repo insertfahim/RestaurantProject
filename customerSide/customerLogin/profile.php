@@ -1,15 +1,15 @@
 <?php
-// Include your database connection code here
+
 require_once '../config.php';
 
-// Check if the user is logged in
+
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: login.php'); // Redirect to the login page if not logged in
+    header('Location: login.php'); 
     exit;
 }
 
-// Fetch the user's profile information
+
 $user_id = $_SESSION['account_id'];
 
 $query = "SELECT m.member_name, m.points, a.email, a.phone_number, a.register_date
@@ -25,10 +25,10 @@ if ($stmt->execute()) {
     $row = $result->fetch_assoc();
 } else {
     echo 'Error: ' . $stmt->error;
-    // Handle the error gracefully
+    
 }
 
-// Close the database connection
+
 $stmt->close();
 $conn->close();
 ?>
