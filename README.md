@@ -34,7 +34,7 @@
 1. Open XAMPP, start MySQL.
 2. Copy all the folders and files (adminSide, customerSide, index.php, and restaurantDB.txt) into the `htdocs` directory.
 3. Make sure there is no database named `restaurantdb`.
-4. Run the project from http://localhost/RestaurantProject-main/customerSide/home/home.php.
+4. Run the project from http://localhost/RestaurantProject-main.
 
 ## Example accounts
 
