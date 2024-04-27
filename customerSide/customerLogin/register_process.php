@@ -12,8 +12,7 @@ require_once '../config.php';
             $direction = "login.php"; 
       
 
-// Close the database connection
-// $conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -118,23 +117,23 @@ require_once '../config.php';
                     clearInterval(countdownInterval);
                     window.location.href = direction;
                 }
-            }, 1000); // 1000 milliseconds = 1 second
+            }, 1000); 
         }
 
-        // Show the message card and start the countdown when the page is loaded
+        
         window.onload = showPopup;
 
-        // Function to hide the message card after a delay
+        
         function hidePopup() {
             var messageCard = document.querySelector(".card");
             messageCard.style.display = "none";
-            // Redirect to another page after hiding the pop-up (adjust the delay as needed)
+            
             setTimeout(function () {
-                window.location.href = direction; // Replace with your desired URL
-            }, 3000); // 3000 milliseconds = 3 seconds
+                window.location.href = direction; 
+            }, 3000); 
         }
 
-        // Hide the message card after 3 seconds (adjust the delay as needed)
+        
         setTimeout(hidePopup, 3000);
     </script>
 </body>

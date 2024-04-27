@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php  include '../inc/dashHeader.php'?>   
     <style>
@@ -29,7 +29,7 @@ session_start(); // Ensure session is started
                     </form>
                 </div>
                     <?php
-                    // Include config file
+                    
                     require_once "../config.php";
                     
                     if (isset($_POST['search'])) {
@@ -41,21 +41,21 @@ session_start(); // Ensure session is started
                                 WHERE table_id LIKE '%$search%' OR capacity LIKE '%$search%' 
                                 ORDER BY table_id;";
                     } else {
-                        // Default query to fetch all Restaurant_tables
+                        
                         $sql = "SELECT *
                                 FROM Restaurant_Tables
                                 ORDER BY table_id;";
                     }
                 } else {
-                    // Default query to fetch all Restaurant_tables
+                    
                     $sql = "SELECT *
                             FROM Restaurant_Tables
                             ORDER BY table_id;";
                 }
 
 
-                    // Attempt select query execution
-                    //$sql = "SELECT * FROM Restaurant_Tables ORDER BY table_id;";
+                    
+                    
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped">';
@@ -64,7 +64,7 @@ session_start(); // Ensure session is started
                                         echo "<th>Table ID</th>";
                                         echo "<th>Capacity</th>";
                                         echo "<th>Availability</th>";
-                                        //echo "<th>Delete</th>";
+                                        
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
@@ -78,16 +78,16 @@ session_start(); // Ensure session is started
                                             echo "<td>" . "No" . "</td>";
                                         }
                                       
-                                     //   echo "<td>";
-                                      //  $deleteSQL = "DELETE FROM Reservations WHERE reservation_id = '" . $row['table_id'] . "';";
-                                        //   echo '<a href="../tableCrud/deleteTableVerify.php?id='. $row['table_id'] .'" title="Delete Record" data-toggle="tooltip" '
-                                         //           . 'onclick="return confirm(\'Admin Permissions Required!\n\nAre you sure you want to delete this Table?\n\nThis will alter other modules related to this Table!\')"><span class="fa fa-trash text-black"></span></a>';
-                                       // echo "</td>";
+                                     
+                                      
+                                        
+                                         
+                                       
                                     echo "</tr>";
                                 }
                                 echo "</tbody>";                            
                             echo "</table>";
-                            // Free result set
+                            
                             mysqli_free_result($result);
                         } else{
                             echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -96,7 +96,7 @@ session_start(); // Ensure session is started
                         echo "Oops! Something went wrong. Please try again later.";
                     }
  
-                    // Close connection
+                    
                     mysqli_close($link);
                     ?>
                 </div>

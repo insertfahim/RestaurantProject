@@ -1,19 +1,19 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php
-// Include config file
+
 require_once "../config.php";
 
-// Initialize variables for form validation and item data
+
 $item_id = $item_name = $item_type = $item_category = $item_price = $item_description = "";
 $item_id_err = "";
 
-// Check if item_id is provided in the URL
+
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $item_id = $_GET['id'];
 
-    // Retrieve item details based on item_id
+    
     $sql = "SELECT * FROM Menu WHERE item_id = ?";
     
     if ($stmt = mysqli_prepare($link, $sql)) {
@@ -42,24 +42,24 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     }
 }
 
-// Process form submission when the form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   // echo "Received POST data: <pre>";
-//print_r($_POST);
-//echo "</pre>";
-    // Validate and sanitize input
+   
+
+
+    
     $item_name = trim($_POST["item_name"]);
     $item_type = trim($_POST["item_type"]);
     $item_category = trim($_POST["item_category"]);
-    $item_price = floatval($_POST["item_price"]); // Convert to float
+    $item_price = floatval($_POST["item_price"]); 
     $item_description = $_POST["item_description"];
 
-    // Update the item in the database
+    
     $update_sql = "UPDATE Menu SET item_name='$item_name', item_type='$item_type', item_category='$item_category', item_price='$item_price', item_description='$item_description' WHERE item_id='$item_id'";
     $resultItems = mysqli_query($link, $update_sql);
     
         if ($resultItems) {
-            // Item updated successfully
+            
           
            header("Location: ../panel/menu-panel.php");
            echo 'success';
@@ -71,25 +71,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
     }
     
-    /*
-     $result_tables = mysqli_query($link, $select_query_tables);
-                                $resultCheckTables = mysqli_num_rows($result_tables);
-                                if ($resultCheckTables > 0) {
-                                    while ($row = mysqli_fetch_assoc($result_tables)) {
-                                        echo '<option value="' . $row['table_id'] . '">For ' . $row['capacity'] . ' people. (Table Id: ' . $row['table_id'] . ')</option>';
-                                    }
-                                }  else {
-                                    echo '<option disabled>No tables available, please choose another time.</option>';
-                                    echo '<script>alert("No reservation tables found for the selected time. Please choose another time.");</script>';
-                                }
-     */
+   
 
-    // Close the database connection
+    
     
 
 ?>
 
-<!-- Create your HTML form for updating the item details -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,10 +96,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .login-container {
-            padding: 50px; /* Adjust the padding as needed */
-            border-radius: 10px; /* Add rounded corners */
-            margin: 100px auto; /* Center the container horizontally */
-            max-width: 500px; /* Set a maximum width for the container */
+            padding: 50px;
+            border-radius: 10px;
+            margin: 100px auto;
+            max-width: 500px;
         }
 
       

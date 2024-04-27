@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
     <style>
@@ -50,7 +50,7 @@ session_start(); // Ensure session is started
                     </form>
                 </div>
                 <?php
-                // Include config file
+                
                 require_once "../config.php";
 
                 if (isset($_POST['search'])) {
@@ -59,11 +59,11 @@ session_start(); // Ensure session is started
 
                         $sql = "SELECT * FROM Menu WHERE item_type LIKE '%$search%' OR item_category LIKE '%$search%' OR item_name LIKE '%$search%' OR item_id LIKE '%$search%' ORDER BY item_id;";
                     } else {
-                        // Default query to fetch all items
+                        
                         $sql = "SELECT * FROM Menu ORDER BY item_id;";
                     }
                 } else {
-                    // Default query to fetch all items
+                    
                     $sql = "SELECT * FROM Menu ORDER BY item_id;";
                 }
 
@@ -79,7 +79,7 @@ session_start(); // Ensure session is started
                         echo "<th>Price</th>";
                         echo "<th>Description</th>";
                         echo "<th>Edit</th>";
-                        //echo "<th>Delete</th>";
+                        
                         echo "</tr>";
                         echo "</thead>";
                         echo "<tbody>";
@@ -92,24 +92,19 @@ session_start(); // Ensure session is started
                             echo "<td>" . $row['item_price'] . "</td>";
                             echo "<td>" . $row['item_description'] . "</td>";
                             echo "<td>";
-                            // Modify link with the pencil icon
+                            
                              $update_sql = "UPDATE Menu SET item_name=?, item_type=?, item_category=?, item_price=?, item_description=? WHERE item_id=?";
                             echo '<a href="../menuCrud/updateItemVerify.php?id='. $row['item_id'] .'" title="Modify Record" data-toggle="tooltip"'
                                     . 'onclick="return confirm(\'Admin permission Required!\n\nAre you sure you want to Edit this Item?\')">'
                              . '<i class="fa fa-pencil" aria-hidden="true"></i></a>';
                             echo "</td>";
 
-                            /*echo "<td>";
-                            $deleteSQL = "DELETE FROM items WHERE item_id = '" . $row['item_id'] . "';";
-                            echo '<a href="../menuCrud/deleteMenuVerify.php?id='. $row['item_id'] .'" title="Delete Record" data-toggle="tooltip" '
-                                    . 'onclick="return confirm(\'Admin permission Required!\n\nAre you sure you want to delete this Item?\n\nThis will alter other modules related to this Item!\n\nYou see unwanted changes in bills.\')"><span class="fa fa-trash text-black"></span></a>';
-                            echo "</td>";
-                             */
+                           
                             echo "</tr>";
                         }
                         echo "</tbody>";
                         echo "</table>";
-                        // Free result set
+                        
                         mysqli_free_result($result);
                     } else {
                         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -118,7 +113,7 @@ session_start(); // Ensure session is started
                     echo "Oops! Something went wrong. Please try again later.";
                 }
 
-                // Close connection
+                
                 mysqli_close($link);
                 ?>
             </div>

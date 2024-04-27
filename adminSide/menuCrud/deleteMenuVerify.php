@@ -1,16 +1,16 @@
 <?php
 require_once "../config.php";
 
-// Check if 'id' is set and not empty
+
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $menu_id = $_GET['id'];
 } else {
     header("Location: ../panel/menu-panel.php");
-    exit(); // Make sure to exit after redirect
+    exit(); 
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // User-provided input
+    
     $provided_account_id = $_POST['admin_id']; // 99999
     $provided_password = $_POST['password']; // 12345
     $uniqueString = $provided_account_id . $provided_password;

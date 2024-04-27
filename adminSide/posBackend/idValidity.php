@@ -1,11 +1,11 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Check Staff Member Reservation Validity</title>
-    <!-- Add Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -39,7 +39,7 @@ session_start(); // Ensure session is started
 
 <div class="container mt-3">
     <?php
-    // Include your database connection configuration
+    
     require_once('../config.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,7 +48,7 @@ session_start(); // Ensure session is started
         $reservationId = !empty($_POST['reservationId']) ? $_POST['reservationId'] : 1111111;
         $bill_id = $_GET['bill_id'];
 
-        // Check if the staff ID exists in the database
+        
         $query = "SELECT * FROM Staffs WHERE staff_id = '$staffId'";
         $result = mysqli_query($link, $query);
 
@@ -57,7 +57,7 @@ session_start(); // Ensure session is started
         } else {
             $staffExists = mysqli_num_rows($result) > 0;
 
-            $memberExists = true; // Assume member is valid if ID is not provided
+            $memberExists = true; 
             if (!empty($memberId)) {
                 $query = "SELECT * FROM Memberships WHERE member_id = '$memberId'";
                 $result = mysqli_query($link, $query);
@@ -68,7 +68,7 @@ session_start(); // Ensure session is started
                 }
             }
 
-            $reservationExists = true; // Assume reservation is valid if ID is not provided
+            $reservationExists = true; 
             if (!empty($reservationId)) {
                 $query = "SELECT * FROM Reservations WHERE reservation_id = '$reservationId'";
                 $result = mysqli_query($link, $query);

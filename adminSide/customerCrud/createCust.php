@@ -1,13 +1,13 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
 <?php
-// Include config file
+
 require_once "../config.php";
 
 
-// Define variables and initialize them
+
 $member_id = $member_name = $points = $account_id = "";
 $member_id_err = $member_name_err = $points_err = "";
 $input_account_id = $account_iderr = $account_id = "";
@@ -16,7 +16,7 @@ $input_register_date = $register_date_err = $register_date = "";
 $input_phone_number = $phone_number_err = $phone_number = "";
 $input_password = $password_err = $password = "";
 
-// Function to get the next available account ID
+
 function getNextAvailableAccountID($conn) {
     $sql = "SELECT MAX(account_id) as max_account_id FROM Accounts";
     $result = mysqli_query($conn, $sql);
@@ -25,7 +25,7 @@ function getNextAvailableAccountID($conn) {
     return $next_account_id;
 }
 
-// Function to get the next available Member ID
+
 function getNextAvailableMemberID($conn) {
     $sql = "SELECT MAX(member_id) as max_member_id FROM Memberships";
     $result = mysqli_query($conn, $sql);
@@ -34,10 +34,10 @@ function getNextAvailableMemberID($conn) {
     return $next_member_id;
 }
 
-// Get the next available Member ID
+
 $next_member_id = getNextAvailableMemberID($link);
 
-// Get the next available account ID
+
 $next_account_id = getNextAvailableAccountID($link);
 ?>
 <head>
@@ -45,7 +45,7 @@ $next_account_id = getNextAvailableAccountID($link);
     <title>Create New Membership</title>
     <style>
         .wrapper{ width: 1300px; padding-left: 200px; padding-top: 80px; }
-        /* Style the select input */
+       
         #account_id {
             width: 100%;
             border: 1px solid #ccc;
@@ -54,26 +54,26 @@ $next_account_id = getNextAvailableAccountID($link);
             color: #333;
         }
 
-        /* Style the default option */
+       
         #account_id option {
             color: #333;
         }
 
-        /* Style the selected option */
+       
         #account_id option:checked {
             background-color: #007bff;
             color: #fff;
         }
 
-        /* Style the select when it's required and empty */
+       
         #account_id:required:invalid {
             color: #999;
-            border-color: #f00; /* Red border for validation */
+            border-color: #f00;
         }
 
-        /* Style the select when it's required and filled */
+       
         #account_id:required:valid {
-            border-color: #28a745; /* Green border for validation */
+            border-color: #28a745;
             color: #333;
         }
     </style>

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
     <style>
@@ -28,7 +28,7 @@ session_start(); // Ensure session is started
                 </div>
                 
                 <?php
-                // Include config file
+                
                 require_once "../config.php";
                 
                 if (isset($_POST['search'])) {
@@ -37,7 +37,7 @@ session_start(); // Ensure session is started
                         
                         $sql = "SELECT * FROM Bills WHERE table_id LIKE '%$search%' OR payment_method LIKE '%$search%' OR bill_id LIKE '%$search%' OR card_id LIKE '%$search%'";
                     } else {
-                        // Default query to fetch all bills
+                        
                         $sql = "SELECT * FROM Bills ORDER BY bill_id;";
                     }
                 } else {
@@ -91,7 +91,7 @@ session_start(); // Ensure session is started
                     echo "Oops! Something went wrong. Please try again later.";
                 }
 
-                // Close connection
+                
                 mysqli_close($link);
                 ?>
             </div>

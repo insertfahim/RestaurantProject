@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php 
 include '../inc/dashHeader.php'; 
@@ -34,11 +34,11 @@ require_once '../config.php';
             $currentMonthStart = date('Y-m-01');
             $currentMonthEnd = date('Y-m-t');
 
-            // Get the current month and year in the format 'YYYY-MM'
+            
             $currentMonth = date('Y-m');
 
             $memberId = isset($_GET['member_id']) ? $_GET['member_id'] : 1;
-            // Get member's most ordered items
+            
             $mostOrderedItemsQuery = "SELECT Menu.item_name, SUM(Bill_Items.quantity) AS order_count
                                       FROM Bill_Items
                                       INNER JOIN Menu ON Bill_Items.item_id = Menu.item_id
@@ -47,7 +47,7 @@ require_once '../config.php';
                                       GROUP BY Bill_Items.item_id
                                       ORDER BY order_count DESC";
             $mostOrderedItemsResult = mysqli_query($link, $mostOrderedItemsQuery);
-            // Check if any results were returned
+            
             if(mysqli_num_rows($mostOrderedItemsResult) == 0) {
                 echo "Member ID not found.";
             }
@@ -90,7 +90,7 @@ require_once '../config.php';
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Get data for the donut chart
+    
     <?php
     $chartLabels = [];
     $chartData = [];
@@ -108,7 +108,7 @@ require_once '../config.php';
     }
     ?>
 
-    // Create the donut chart
+    
     var ctx = document.getElementById('mostOrderedItemsChart');
     
     var mostOrderedItemsChart = new Chart(ctx, {
@@ -141,4 +141,4 @@ require_once '../config.php';
 
 
 
-<?php include '../inc/dashFooter.php';  // Include your footer file here ?>
+<?php include '../inc/dashFooter.php';  

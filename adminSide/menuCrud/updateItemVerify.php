@@ -1,23 +1,23 @@
 <?php
 require_once "../config.php";
 
-// Check if 'id' is set and not empty
+
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $menu_id = $_GET['id'];
 } else {
     header("Location: ../panel/menu-panel.php");
-    exit(); // Make sure to exit after redirect
+    exit(); 
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // User-provided input
-    $provided_account_id = $_POST['admin_id']; // Replace with your admin account ID
-    $provided_password = $_POST['password']; // Replace with your admin account password
+    
+    $provided_account_id = $_POST['admin_id']; 
+    $provided_password = $_POST['password']; 
     $uniqueString = $provided_account_id . $provided_password;
 
-    // Replace the following condition with your admin authentication logic
+    
     if ($uniqueString == "9999912345") {
-        // Admin authentication successful
+        
         header("Location: ../menuCrud/updateItem.php?id=" . $menu_id);
     } else {
         echo '<script>alert("Incorrect ID or Password!")</script>';

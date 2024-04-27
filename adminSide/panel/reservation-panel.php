@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
     <style>
@@ -30,7 +30,7 @@ session_start(); // Ensure session is started
                 </div>
                 
                 <?php
-                // Include config file
+                
                 require_once "../config.php";
                 $sql = "SELECT * FROM reservations ORDER BY reservation_id;";
 
@@ -40,7 +40,7 @@ session_start(); // Ensure session is started
 
                         $sql = "SELECT * FROM reservations WHERE reservation_date LIKE '%$search%' OR reservation_id LIKE '%$search%' OR customer_name LIKE '%$search%'";
                     } else {
-                        // Default query to fetch all reservations
+                        
                         $sql = "SELECT * FROM reservations ORDER BY reservation_date DESC, reservation_time DESC;";
                     }
                 } else{
@@ -92,7 +92,7 @@ session_start(); // Ensure session is started
                     echo "Oops! Something went wrong. Please try again later.";
                 }
 
-                // Close connection
+                
                 mysqli_close($link);
                 ?>
             </div>

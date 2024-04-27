@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
     <style>
@@ -33,7 +33,7 @@ session_start(); // Ensure session is started
                 </div>
                 
                 <?php
-                // Include config file
+                
                 require_once "../config.php";
 
                 if (isset($_POST['search'])) {
@@ -45,13 +45,13 @@ session_start(); // Ensure session is started
                                 WHERE email LIKE '%$search%' OR account_id LIKE '%$search%'
                                 ORDER BY account_id;";
                     } else {
-                        // Default query to fetch all accounts
+                        
                         $sql = "SELECT *
                                 FROM Accounts
                                 ORDER BY account_id;";
                     }
                 } else {
-                    // Default query to fetch all accounts
+                    
                     $sql = "SELECT *
                             FROM Accounts
                             ORDER BY account_id;";
@@ -67,8 +67,8 @@ session_start(); // Ensure session is started
                         echo "<th>Register Date</th>";
                         echo "<th>Phone Number</th>";
                         echo "<th>Password</th>";
-                        //echo "<th>Account Type</th>"; // Display account type
-                       // echo "<th>Delete</th>";
+                        
+                       
                         echo "</tr>";
                         echo "</thead>";
                         echo "<tbody>";
@@ -79,17 +79,17 @@ session_start(); // Ensure session is started
                             echo "<td>" . $row['register_date'] . "</td>";
                             echo "<td>" . $row['phone_number'] . "</td>";
                             echo "<td>" . $row['password'] . "</td>";
-                            //echo "<td>" . ucfirst($row['account_type']) . "</td>"; // Display account type
-                          //  echo "<td>";
-                          //  $deleteSQL = "DELETE FROM Accounts WHERE account_id = '" . $row['account_id'] . "';";
-                           // echo '<a href="../accountCrud/deleteAccountVerify.php?id=' . $row['account_id'] . '" title="Delete Record" data-toggle="tooltip" '
-                           //         . 'onclick="return confirm(\'Admin permission Required!\n\nAre you sure you want to delete this Account?\n\nThis will alter other modules related to this Account!\n\')"><span class="fa fa-trash text-black"></span></a>';
-                           // echo "</td>";
+                            
+                          
+                          
+                           
+                           
+                           
                             echo "</tr>";
                         }
                         echo "</tbody>";
                         echo "</table>";
-                        // Free result set
+                        
                         mysqli_free_result($result);
                     } else {
                         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -98,7 +98,7 @@ session_start(); // Ensure session is started
                     echo "Oops! Something went wrong. Please try again later.";
                 }
 
-                // Close connection
+                
                 mysqli_close($link);
                 ?>
             </div>

@@ -32,13 +32,13 @@ $reservation_id = $_GET['reservation_id'];
                             </thead>
                             <tbody>
             <?php
-            // Query to fetch cart items for the given bill_id
+            
             $cart_query = "SELECT bi.*, m.item_name, m.item_price FROM bill_items bi
                            JOIN Menu m ON bi.item_id = m.item_id
                            WHERE bi.bill_id = '$bill_id'";
             $cart_result = mysqli_query($link, $cart_query);
-            $cart_total = 0;//cart total
-            $tax = 0.1; // 10% tax rate
+            $cart_total = 0;
+            $tax = 0.1; 
 
             if ($cart_result && mysqli_num_rows($cart_result) > 0) {
                 while ($cart_row = mysqli_fetch_assoc($cart_result)) {
@@ -89,7 +89,7 @@ $reservation_id = $_GET['reservation_id'];
                     <input type="number" min="0" id="payment_amount" name="payment_amount" class="form-control" required>
                 </div>
 
-                <!-- Add hidden input fields for bill_id, staff_id, member_id, and reservation_id -->
+    
                 <input type="hidden" name="bill_id" value="<?php echo $bill_id; ?>">
                 <input type="hidden" name="staff_id" value="<?php echo $staff_id; ?>">
                 <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
@@ -121,12 +121,12 @@ $reservation_id = $_GET['reservation_id'];
                         echo "Bill with ID $bill_id has already been paid.</div>";
                         echo '<br><a href="posTable.php" class="btn btn-dark">Back to Tables</a>';
                         echo '<br><a href="receipt.php?bill_id=' . $bill_id . '" class="btn btn-light">Print Receipt <span class="fa fa-receipt text-black"></span></a>';
-                        exit; // Stop further execution
+                        exit; 
                     }
                 }
             } else {
                 echo "Error checking bill: " . $link->error;
-                exit; // Stop further execution
+                exit; 
             }
 
             if ($payment_amount >= $GRANDTOTAL) {
@@ -134,13 +134,13 @@ $reservation_id = $_GET['reservation_id'];
                 echo "Change is BDT" . number_format(calculateChange($payment_amount, $GRANDTOTAL),2);
                 echo '</div>';
 
-                // Update the payment method, bill time, and other details in the Bills table
+                
                 $currentTime = date('Y-m-d H:i:s');
                 $updateQuery = "UPDATE Bills SET payment_method = 'cash', payment_time = '$currentTime',
                                 staff_id = $staff_id, member_id = $member_id, reservation_id = $reservation_id
                                 WHERE bill_id = $bill_id;";
                 
-                // Update member points if member_id is not empty
+                
 
    
                 $points = intval($GRANDTOTAL);

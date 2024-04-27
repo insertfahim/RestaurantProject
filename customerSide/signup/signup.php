@@ -8,8 +8,7 @@ $exists=false;
 	
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	
-	// Include file which makes the
-	// Database Connection.
+	
 	
 	$username = $_POST["username"];
 	$password = $_POST["password"];
@@ -22,16 +21,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	$num = mysqli_num_rows($result);
 	
-	// This sql query is use to check if
-	// the username is already present
-	// or not in our Database
+	
 	if($num == 0) {
 		if(($password == $cpassword) && $exists==false) {
 	
 			$hash = password_hash($password,
 								PASSWORD_DEFAULT);
 				
-			// Password Hashing is used here.
+			
 			$sql = "INSERT INTO `users` ( `username`,
 				`password`, `date`) VALUES ('$username',
 				'$hash', current_timestamp())";
@@ -45,14 +42,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		else {
 			$showError = "Passwords do not match";
 		}	
-	}// end if
+	}
 	
 if($num>0)
 {
 	$exists="Username not available";
 }
 	
-}//end if
+}
 	
 ?>
 	
@@ -62,13 +59,13 @@ if($num>0)
 
 <head>
 	
-	<!-- Required meta tags -->
+	
 	<meta charset="utf-8">
 	<meta name="viewport" content=
 		"width=device-width, initial-scale=1,
 		shrink-to-fit=no">
 	
-	<!-- Bootstrap CSS -->
+	
 	<link rel="stylesheet" href=
 "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity=
@@ -154,8 +151,7 @@ if($num>0)
 	</form>
 </div>
 	
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 	
 <script src="
 https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -16,7 +16,7 @@ $sides = mysqli_fetch_all($resultsides, MYSQLI_ASSOC);
 
 
 
-// Check if the user is logged in
+
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     echo '<div class="user-profile">';
     echo 'Welcome, ' . $_SESSION["member_name"] . '!';
@@ -43,7 +43,7 @@ session_start();
 </head>
 
 <body>
- <!-- Header -->
+ 
  
 <section id="header">
   <div class="header container">
@@ -78,43 +78,38 @@ session_start();
         
   <?php
 
-// Get the member_id from the query parameters
-$account_id = $_SESSION['account_id'] ?? null; // Change this to the way you obtain the member ID
 
-// Create a query to retrieve the member's information
-//$query = "SELECT member_name, points FROM memberships WHERE account_id = $account_id";
+$account_id = $_SESSION['account_id'] ?? null; 
 
-// Execute the query
-//$result = mysqli_query($link, $query);
 
-// Check if the user is logged in
+
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $account_id != null) {
     $query = "SELECT member_name, points FROM memberships WHERE account_id = $account_id";
 
-// Execute the query
+
 $result = mysqli_query($link, $query);
-    // If logged in, show "Logout" link
-    // Check if the query was successful
+    
     if ($result) {
-        // Fetch the member's information
+        
         $row = mysqli_fetch_assoc($result);
         
         if ($row) {
             $member_name = $row['member_name'];
             $points = $row['points'];
             
-            // Calculate VIP status
+            
             $vip_status = ($points >= 1000) ? 'VIP' : 'Regular';
             
-            // Define the VIP tooltip text
+            
             $vip_tooltip = ($vip_status === 'Regular') ? ($points < 1000 ? (1000 - $points) . ' points to VIP ' : 'You are eligible for VIP') : '';
             
-            // Output the member's information
+            
             echo "<p class='logout-link' style='font-size:1.3em; margin-left:15px; padding:5px; color:white; '>$member_name</p>";
             echo "<p class='logout-link' style='font-size:1.3em; margin-left:15px;padding:5px;color:white; '>$points Points </p>";
             echo "<p class='logout-link' style='font-size:1.3em; margin-left:15px;padding:5px; color:white; '>$vip_status";
             
-            // Add the tooltip only for Regular status
+            
             if ($vip_status === 'Regular') {
                 echo " <span class='tooltip'>$vip_tooltip</span>";
             }
@@ -129,12 +124,12 @@ $result = mysqli_query($link, $query);
 
     echo '<a class="logout-link" style="color: white; font-size:1.3em;" href="../customerLogin/logout.php">Logout</a>';
 } else {
-    // If not logged in, show "Login" link
+    
     echo '<a class="signin-link" style="color: white; font-size:15px;" href="../customerLogin/register.php">Sign Up </a> ';
     echo '<a class="login-link" style="color: white; font-size:15px; " href="../customerLogin/login.php">Log In</a>';
 }
 
-// Close the database connection
+
 mysqli_close($link);
 ?>
 
@@ -148,7 +143,7 @@ mysqli_close($link);
     </div>
   </div>
 </section>
-<!-- End Header -->
+
 
 
 
@@ -168,7 +163,7 @@ mysqli_close($link);
   
   
   
-  <!-- menu Section -->
+  
   <section id="projects">
     <div class="projects container">
       <div class="projects-header">
@@ -278,11 +273,7 @@ mysqli_close($link);
       </div>
     </div>
   </section>
-  <!-- End menu Section -->
-
-
   
-  <!-- About Section -->
 <section id="about" ">
   <div class="about container">
     <div class="col-right">
@@ -300,13 +291,7 @@ mysqli_close($link);
       </div>
     </div>
   </section>
-  <!-- End About Section -->
-
   
-  
-  
-  
- <!-- Contact Section -->
 <section id="contact" ">
   <div class="contact container">
     <div>
@@ -339,16 +324,7 @@ mysqli_close($link);
     </div>
   </div>
 </section>
-<!-- End Contact Section -->
 
-
-  
-
-  
-  
-  
-  
-  <!-- Footer -->
   <section id="footer">
     <div class="footer container">
         <div class="brand">
@@ -379,7 +355,7 @@ mysqli_close($link);
       
     </div>
   </section>
-  <!-- End Footer -->
+  
   <script src="../js/app.js"></script>
    <style type="text/css">
        
@@ -405,51 +381,51 @@ mysqli_close($link);
         background: #fff;
       }
 
-      /* Styling the select button */
+      
    .menu-category {
   font-size: 24px;
   padding: 10px;
-  border: 2px solid black; /* Red border */
+  border: 2px solid black; 
   outline: none;
   cursor: pointer;
   transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-  color: #000; /* Black text */
-  background-color: #fff; /* White background */
-  border-radius: 0; /* No border radius (sharp corners) */
+  color: #000; 
+  background-color: #fff; 
+  border-radius: 0; 
 }
 
-/* Style the option text in the select dropdown */
+
 .menu-category option {
   font-size: 20px;
 }
 
-/* Hover effect */
+
 .menu-category:hover {
-  background-color: black; /* Red background on hover */
-  color: white; /* Black text on hover */
+  background-color: black; 
+  color: white; 
 }
 
-      /* Use CSS Grid to create three columns */
+      
       .msg {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-        grid-gap: 24px; /* Adjust the gap between items */
+        grid-template-columns: repeat(3, 1fr); 
+        grid-gap: 24px; 
       }
 
-      /* Style the menu item content */
+      
       .msg p {
         margin: 5px 0;
       }
       
     .item-name {
-  display: inline-block; /* Ensure items are displayed on separate lines */
-  width: 100%; /* Adjust the width as needed */
+  display: inline-block; 
+  width: 100%; 
   float: left;
 }
 
 .item-price {
-  display: inline-block; /* Ensure prices are displayed on separate lines */
-  width: 30%; /* Adjust the width as needed */
+  display: inline-block; 
+  width: 30%; 
   float: right;
 }
 
@@ -466,48 +442,48 @@ mysqli_close($link);
     text-decoration: none;
 }
 
-/* Style for the profile link */
+
 .profile-link {
-  border: 1px solid #fff; /* Smaller border style and color */
-  padding: 3px 8px; /* Smaller padding inside the border */
-  border-radius: 3px; /* Rounded corners for the border */
-  text-decoration: none; /* Remove the default underline */
-  color: #fff; /* Text color */
-  margin-left: auto; /* Automatically push the link to the right */
-  margin-right: 10px; /* Add a small right margin for spacing */
+  border: 1px solid #fff; 
+  padding: 3px 8px; 
+  border-radius: 3px; 
+  text-decoration: none; 
+  color: #fff; 
+  margin-left: auto; 
+  margin-right: 10px; 
 }
 
 
 #contact .col-right h2 {
-  font-size: 24px; /* Adjust the font size */
-  color: white; /* Text color for the right column */
+  font-size: 24px; 
+  color: white; 
 }
 
 #contact .col-right p {
-  font-size: 18px; /* Adjust the font size */
-  color: white; /* Text color for the right column */
+  font-size: 18px; 
+  color: white; 
 }
 
-/* Style for the contact-item containers */
+
 .contact-item-bg {
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.7); 
   padding: 20px;
   border-radius: 5px;
-  margin-bottom: 20px; /* Add margin between contact items */
+  margin-bottom: 20px; 
 }
 
 .contact-item-bg h1,
 .contact-item-bg h2 {
-  color: white; /* Text color for the contact items */
+  color: white; 
 }
 
 .contact-item-bg i {
-  color: #fff; /* Icon color */
+  color: #fff; 
 }
 
 .contact-item-bg .icon img {
-  width: 80px; /* Adjust the width of the icon images */
-  height: 80px; /* Adjust the height of the icon images */
+  width: 80px; 
+  height: 80px; 
 }
 
 
@@ -570,7 +546,7 @@ mysqli_close($link);
 .dropdown-content a:hover {
   background-color: #ddd;
 }
-/* Style for the dropdown content text */
+
 .dropdown-content a {
   float: none;
   color: black;
@@ -580,10 +556,10 @@ mysqli_close($link);
   text-align: left;
 }
 
-/* Hover effect for dropdown content text */
+
 .dropdown-content a:hover {
   background-color: #ddd;
-  color: black; /* Set the text color to black on hover if needed */
+  color: black; 
 }
 
 .dropdown:hover .dropdown-content {
@@ -598,10 +574,10 @@ mysqli_close($link);
     padding: 5px;
     border-radius: 3px;
     font-size: 0.9em;
-    margin-top: 50px; /* Add margin to move the tooltip below the element */
-    left: 0; /* Set left to 0 to align with the element */
-    width: 100%; /* Make the tooltip span the width of the element */
-    text-align: center; /* Center the text within the tooltip */
+    margin-top: 50px; 
+    left: 0; 
+    width: 100%; 
+    text-align: center; 
   }
 
     </style>
@@ -628,7 +604,7 @@ mysqli_close($link);
     
 
   $(document).ready(function(){
-    // Function to filter menu items based on search input
+    
     function filterMenuItems(searchTerm) {
       $(".item-name").each(function() {
         var itemName = $(this).text().toLowerCase();
@@ -640,13 +616,13 @@ mysqli_close($link);
       });
     }
     
-    // Search button click event
+    
     $("#search-button").click(function() {
       var searchTerm = $("#search-input").val().toLowerCase();
       filterMenuItems(searchTerm);
     });
     
-    // Search input keyup event
+    
     $("#search-input").keyup(function() {
       var searchTerm = $(this).val().toLowerCase();
       filterMenuItems(searchTerm);
@@ -658,10 +634,10 @@ $(document).ready(function() {
 });
 
     </script>
-<!-- jQuery -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap JS (including Popper.js) -->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -669,7 +645,7 @@ $(document).ready(function() {
     $('.logout-link').hover(function () {
       var $tooltip = $(this).find('.tooltip');
       var elementHeight = $(this).height();
-      $tooltip.css('top', elementHeight + 10 + 'px'); // Position the tooltip below the element
+      $tooltip.css('top', elementHeight + 10 + 'px'); 
       $tooltip.css('display', 'block');
     }, function () {
       $(this).find('.tooltip').css('display', 'none');

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php
 include '../inc/dashHeader.php';
@@ -44,7 +44,7 @@ $result = mysqli_query($link, $query);
                         $time_submitted = $row['time_submitted'];
                         $time_ended = $row['time_ended'];
 
-                        // Get item name from Menu table
+                        
                         $itemQuery = "SELECT item_name FROM Menu WHERE item_id = '$item_id'";
                         $itemResult = mysqli_query($link, $itemQuery);
                         $itemRow = mysqli_fetch_assoc($itemResult);

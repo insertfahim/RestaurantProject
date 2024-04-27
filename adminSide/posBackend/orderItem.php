@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php
 require_once '../config.php';
@@ -9,13 +9,13 @@ $bill_id = $_GET['bill_id'];
 $table_id = $_GET['table_id'];
 
 function createNewBillRecord($table_id) {
-    global $link; // Assuming $link is your database connection
+    global $link; 
     
     $bill_time = date('Y-m-d H:i:s');
     
     $insert_query = "INSERT INTO Bills (table_id, bill_time) VALUES ('$table_id', '$bill_time')";
     if ($link->query($insert_query) === TRUE) {
-        return $link->insert_id; // Return the newly inserted bill_id
+        return $link->insert_id; 
     } else {
         return false;
     }
@@ -54,7 +54,7 @@ function createNewBillRecord($table_id) {
                     </div>
                     <div style="max-height: 45rem;overflow-y: auto;">
                         <?php
-                        // Include config file
+                        
                         
                         require_once "../config.php";
                         if (isset($_POST['search'])) {
@@ -64,12 +64,12 @@ function createNewBillRecord($table_id) {
                                 $query = "SELECT * FROM Menu WHERE item_type LIKE '%$search%' OR item_category LIKE '%$search%' OR item_name LIKE '%$search%' OR item_id LIKE '%$search%' ORDER BY item_id;";
                                 $result = mysqli_query($link, $query);
                             }else{
-                                // Default query to fetch all menu items
+                                
                                 $query = "SELECT * FROM Menu ORDER BY item_id;";
                                 $result = mysqli_query($link, $query);
                             }
                         } else {
-                            // Default query to fetch all menu items
+                            
                             $query = "SELECT * FROM Menu ORDER BY item_id;";
                             $result = mysqli_query($link, $query);
                         }
@@ -87,7 +87,7 @@ function createNewBillRecord($table_id) {
                                 echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
-                                // ...
+                                
 
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
@@ -96,7 +96,7 @@ function createNewBillRecord($table_id) {
                                     echo "<td>" . $row['item_category'] . "</td>";
                                     echo "<td>" . number_format($row['item_price'],2) . "</td>";
 
-                                    // Check if the bill has been paid
+                                    
                                     $payment_time_query = "SELECT payment_time FROM Bills WHERE bill_id = '$bill_id'";
                                     $payment_time_result = mysqli_query($link, $payment_time_query);
                                     $has_payment_time = false;
@@ -108,7 +108,7 @@ function createNewBillRecord($table_id) {
                                         }
                                     }
 
-                                    // Display the "Add to Cart" button if the bill hasn't been paid
+                                    
                                     if (!$has_payment_time) {
                                         echo '<td><form method="get" action="addItem.php">'
                                             . '<input type="text" hidden name= "table_id" value="' . $table_id . '">'
@@ -125,7 +125,7 @@ function createNewBillRecord($table_id) {
                                     echo "</tr>";
                                 }
 
-                                // ...
+                                
 
                                 echo "</tbody>";
                                 echo "</table>";
@@ -135,7 +135,7 @@ function createNewBillRecord($table_id) {
                         } else {
                             echo "Oops! Something went wrong. Please try again later.";
                         }
-                        // Close connection
+                        
                         
                         ?>
                      </div>
@@ -161,13 +161,13 @@ function createNewBillRecord($table_id) {
                             <div style="max-height: 40rem;overflow-y: auto;">
                                 <tbody>
                                 <?php
-                                // Query to fetch cart items for the given bill_id
+                                
                                 $cart_query = "SELECT bi.*, m.item_name, m.item_price FROM bill_items bi
                                                JOIN Menu m ON bi.item_id = m.item_id
                                                WHERE bi.bill_id = '$bill_id'";
                                 $cart_result = mysqli_query($link, $cart_query);
-                                $cart_total = 0;//cart total
-                                $tax = 0.1; // 10% tax rate
+                                $cart_total = 0;
+                                $tax = 0.1; 
 
                                 if ($cart_result && mysqli_num_rows($cart_result) > 0) {
                                     while ($cart_row = mysqli_fetch_assoc($cart_result)) {
@@ -184,7 +184,7 @@ function createNewBillRecord($table_id) {
                                         echo '<td>BDT ' . number_format($item_price,2) . '</td>';
                                         echo '<td>' . $quantity . '</td>';
                                         echo '<td>BDT ' . number_format($total,2) . '</td>';
-                                        // Check if the bill has been paid
+                                        
                                         $payment_time_query = "SELECT payment_time FROM Bills WHERE bill_id = '$bill_id'";
                                         $payment_time_result = mysqli_query($link, $payment_time_query);
                                         $has_payment_time = false;
@@ -196,7 +196,7 @@ function createNewBillRecord($table_id) {
                                             }
                                         }
 
-                                        // Display the "Delete" button if the bill hasn't been paid
+                                        
                                         if (!$has_payment_time) {
                                             echo '<td><a class="btn btn-dark" href="deleteItem.php?bill_id=' . $bill_id . '&table_id=' . $table_id . '&bill_item_id=' . $bill_item_id . '&item_id=' . $item_id .'">Delete</a></td>';
                                         } else {
@@ -233,11 +233,11 @@ function createNewBillRecord($table_id) {
 
                         <?php 
                         
-                        //echo "Cart Total: BDT " . $cart_total;
-                        //echo "<br>Cart Taxed: BDT " . $cart_total * $tax;
-                        //echo "<br>Grand Total: BDT " . $tax * $cart_total + $cart_total;
+                        
+                        
+                        
                       
-                        // Check if the payment time record exists for the bill
+                        
                         $payment_time_query = "SELECT payment_time FROM Bills WHERE bill_id = '$bill_id'";
                         $payment_time_result = mysqli_query($link, $payment_time_query);
                         $has_payment_time = false;
@@ -249,7 +249,7 @@ function createNewBillRecord($table_id) {
                             }
                         }
 
-                        // If payment time record exists, show the "Print Receipt" button
+                        
                         if ($has_payment_time) {
                             echo '<div>';
                             echo '<div class="alert alert-success" role="alert">
@@ -270,7 +270,7 @@ function createNewBillRecord($table_id) {
                         ?>
                     </div>
                     <?php 
-                       echo '<form class="mt-3" action="newCustomer.php" method="get">'; // Add this form element
+                       echo '<form class="mt-3" action="newCustomer.php" method="get">'; 
                         echo '<input type="hidden" name="table_id" value="' . $table_id . '">';
                         echo '<button type="submit" name="new_customer" value="true" class="btn btn-warning">New Customer</button>';
                         echo '</form>';

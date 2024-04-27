@@ -1,19 +1,19 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php  include '../inc/dashHeader.php'?>
 <?php
-// Include config file
+
 require_once "../config.php";
  
 $input_item_id = $item_id_err = $item_id = "";
  
-// Processing form data when form is submitted
+
 if(isset($_POST['submit'])){
     if (empty($_POST['item_id'])) {
     $item_idErr = 'ID is required';
   } else {
-    // $item_id = filter_var($_POST['item_id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    
     $item_id = filter_input(
       INPUT_POST,
       'item_id',

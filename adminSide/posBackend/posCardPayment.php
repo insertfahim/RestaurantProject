@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php
 require_once '../config.php';
@@ -33,13 +33,13 @@ $reservation_id = $_GET['reservation_id'];
                             </thead>
                             <tbody>
             <?php
-            // Query to fetch cart items for the given bill_id
+            
             $cart_query = "SELECT bi.*, m.item_name, m.item_price FROM bill_items bi
                            JOIN Menu m ON bi.item_id = m.item_id
                            WHERE bi.bill_id = '$bill_id'";
             $cart_result = mysqli_query($link, $cart_query);
-            $cart_total = 0;//cart total
-            $tax = 0.1; // 10% tax rate
+            $cart_total = 0;
+            $tax = 0.1; 
 
             if ($cart_result && mysqli_num_rows($cart_result) > 0) {
                 while ($cart_row = mysqli_fetch_assoc($cart_result)) {

@@ -28,7 +28,7 @@
             require_once "../config.php";
 
 
-            // Query to retrieve accounts without staff assigned
+            
             $accountQuery = "SELECT account_id FROM Accounts WHERE staff_id IS NULL";
             $accountResult = $conn->query($accountQuery);
 
@@ -47,14 +47,14 @@
         <select id="staff_id" name="staff_id" required>
             <option value="">Select a staff</option>
             <?php
-            // Assuming you have a database connection established
+            
             $conn = new mysqli($servername, $username, $password, $dbname);
 
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            // Query to retrieve staffs not used by any account
+            
             $staffQuery = "SELECT staff_id FROM Staffs WHERE staff_id NOT IN (SELECT staff_id FROM Accounts WHERE staff_id IS NOT NULL)";
             $staffResult = $conn->query($staffQuery);
 

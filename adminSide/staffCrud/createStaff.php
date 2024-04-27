@@ -1,9 +1,9 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
 <?php
-// Include config file
+
 require_once "../config.php";
 
 
@@ -15,7 +15,7 @@ $input_register_date = $register_date_err = $register_date = "";
 $input_phone_number = $phone_number_err = $phone_number = "";
 $input_password = $password_err = $password = "";
 
-// Processing form data when form is submitted
+
 if (isset($_POST['submit'])) {
     if (empty($_POST['staff_id'])) {
         $staff_idErr = 'ID is required';
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Function to get the next available account ID
+
 function getNextAvailableAccountID($conn) {
     $sql = "SELECT MAX(account_id) as max_account_id FROM Accounts";
     $result = mysqli_query($conn, $sql);
@@ -37,7 +37,7 @@ function getNextAvailableAccountID($conn) {
     return $next_account_id;
 }
 
-// Function to get the next available Staff ID
+
 function getNextAvailableStaffID($conn) {
     $sql = "SELECT MAX(staff_id) as max_staff_id FROM Staffs";
     $result = mysqli_query($conn, $sql);
@@ -46,10 +46,10 @@ function getNextAvailableStaffID($conn) {
     return $next_staff_id;
 }
 
-// Get the next available Staff ID
+
 $next_staff_id = getNextAvailableStaffID($link);
 
-// Get the next available account ID
+
 $next_account_id = getNextAvailableAccountID($link);
 ?>
 <head>
@@ -57,7 +57,7 @@ $next_account_id = getNextAvailableAccountID($link);
     <title>Create New Staff</title>
     <style>
        .wrapper{ width: 1300px; padding-left: 200px ; padding-top: 80px; }
-       /* Style the select input */
+      
         #account_id {
             width: 100%;
            
@@ -67,26 +67,26 @@ $next_account_id = getNextAvailableAccountID($link);
             color: #333;
         }
 
-        /* Style the default option */
+       
         #account_id option {
             color: #333;
         }
 
-        /* Style the selected option */
+       
         #account_id option:checked {
             background-color: #007bff;
             color: #fff;
         }
 
-        /* Style the select when it's required and empty */
+       
         #account_id:required:invalid {
             color: #999;
-            border-color: #f00; /* Red border for validation */
+            border-color: #f00;
         }
 
-        /* Style the select when it's required and filled */
+       
         #account_id:required:valid {
-            border-color: #28a745; /* Green border for validation */
+            border-color: #28a745;
             color: #333;
         }
     </style>

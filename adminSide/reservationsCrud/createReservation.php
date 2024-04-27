@@ -66,7 +66,7 @@ $head_count = $_GET['head_count'] ?? 1;
             </div> 
         </form>
         </div>
-        <!-- AFTER SEARCH -->
+        
         <div id="insert-reservation-into-table"><br>
                     <h3>Make the Reservation</h3>
                     

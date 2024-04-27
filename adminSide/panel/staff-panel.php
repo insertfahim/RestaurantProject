@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php include '../inc/dashHeader.php'; ?>
     <style>
@@ -30,43 +30,24 @@ session_start(); // Ensure session is started
                     </form>
                 </div>
                 <?php
-                // Include config file
+                
                 require_once "../config.php";
 
                 if (isset($_POST['search'])) {
                     if (!empty($_POST['search'])) {
                         $search = $_POST['search'];
 
-                        // Modified query to search staff members by staff_name or staff_id
-                        /*
-                        $sql = "SELECT *
-                                FROM Staffs stf
-                                INNER JOIN Accounts acc ON stf.account_id = acc.account_id
-                                WHERE stf.staff_name LIKE '%$search%' OR stf.staff_id = '$search'
-                                ORDER BY stf.staff_id";
-                         * 
-                         */
+                        
+                       
                         $sql = "SELECT * FROM Staffs WHERE staff_name LIKE '%$search%' OR staff_id = '$search' ORDER BY account_id";
                     } else {
-                        // Default query to fetch all staff members
-                        /*
-                        $sql = "SELECT *
-                                FROM Staffs stf
-                                INNER JOIN Accounts acc ON stf.account_id = acc.account_id
-                                ORDER BY stf.staff_id";
-                         * 
-                         */
+                        
+                       
                         $sql = "SELECT * FROM Staffs ORDER BY account_id";
                     }
                 } else {
-                    // Default query to fetch all staff members
-                    /*
-                    $sql = "SELECT *
-                            FROM Staffs stf
-                            INNER JOIN Accounts acc ON stf.account_id = acc.account_id
-                            ORDER BY stf.staff_id";
-                     * 
-                     */
+                    
+                   
                     $sql = "SELECT * FROM Staffs ORDER BY account_id";
                 }
 
@@ -80,9 +61,9 @@ session_start(); // Ensure session is started
                         echo "<th>Staff Name</th>";
                         echo "<th style='width:7em;'>Role</th>";
                         echo "<th>Account ID</th>";
-                        //echo "<th>Email</th>";
-                        //echo "<th>Phone Number</th>";
-                       // echo "<th style='width:5em;'>Delete</th>";
+                        
+                        
+                       
                         echo "</tr>";
                         echo "</thead>";
                         echo "<tbody>";
@@ -92,16 +73,16 @@ session_start(); // Ensure session is started
                             echo "<td>" . $row['staff_name'] . "</td>";
                             echo "<td>" . $row['role'] . "</td>";
                             echo "<td>" . $row['account_id'] . "</td>";
-                            //echo "<td>" . $row['email'] . "</td>";
-                            //echo "<td>" . $row['phone_number'] . "</td>";
-                           // echo "<td>";
-                        //    echo '<a href="../staffCrud/delete_staffVerify.php?id=' . $row['staff_id'] . '" title="Delete Record" data-toggle="tooltip" onclick="return confirm(\'Admin permission Required!\n\nAre you sure you want to delete this Staff?\n\nThis will alter other modules related to this Staff!\n\')"><span class="fa fa-trash text-black"></span></a>';
-                         //   echo "</td>";
+                            
+                            
+                           
+                        
+                         
                             echo "</tr>";
                         }
                         echo "</tbody>";
                         echo "</table>";
-                        // Free result set
+                        
                         mysqli_free_result($result);
                     } else {
                         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
@@ -110,7 +91,7 @@ session_start(); // Ensure session is started
                     echo "Oops! Something went wrong. Please try again later.";
                 }
 
-                // Close connection
+                
                 mysqli_close($link);
                 ?>
             </div>

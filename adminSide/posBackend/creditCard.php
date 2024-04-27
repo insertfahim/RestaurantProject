@@ -1,5 +1,5 @@
 <?php
-session_start(); // Ensure session is started
+session_start(); 
 ?>
 <?php
 require_once '../config.php';
@@ -29,13 +29,13 @@ $bill_id = $_GET['bill_id'];
                             </thead>
                             <tbody>
             <?php
-            // Query to fetch cart items for the given bill_id
+            
             $cart_query = "SELECT bi.*, m.item_name, m.item_price FROM bill_items bi
                            JOIN Menu m ON bi.item_id = m.item_id
                            WHERE bi.bill_id = '$bill_id'";
             $cart_result = mysqli_query($link, $cart_query);
-            $cart_total = 0;//cart total
-            $tax = 0.1; // 10% tax rate
+            $cart_total = 0;
+            $tax = 0.1; 
 
             if ($cart_result && mysqli_num_rows($cart_result) > 0) {
                 while ($cart_row = mysqli_fetch_assoc($cart_result)) {
@@ -83,7 +83,7 @@ $bill_id = $_GET['bill_id'];
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve data from the form
+    
     $account_holder_name = $_POST['cardName'];
     $card_number = $_POST['cardNumber'];
     $expiry_date = $_POST['expiryDate'];
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $GRANDTOTAL = $_POST['GRANDTOTAL'];
     $points = intval($GRANDTOTAL);
 
-    // Check if the bill has already been paid for
+    
     $check_payment_sql = "SELECT card_id FROM Bills WHERE bill_id = '$bill_id'";
     $check_payment_result = $link->query($check_payment_sql);
 
@@ -109,9 +109,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<br><a href="posTable.php" class="btn btn-dark">Back to Tables</a>';
             echo '<br><a href="receipt.php?bill_id=' . $bill_id . '" class="btn btn-light">Print Receipt <span class="fa fa-receipt text-black"></span></a>';
         } else {
-            $currentTime = date('Y-m-d H:i:s'); // Current time
+            $currentTime = date('Y-m-d H:i:s'); 
 
-            // Prepare and execute the SQL query to insert into card_payments table
+            
             $insert_card_sql = "INSERT INTO card_payments (account_holder_name, card_number, expiry_date, security_code) 
                                 VALUES (?, ?, ?, ?)";
             
@@ -119,22 +119,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("ssss", $account_holder_name, $card_number, $expiry_date, $security_code);
 
             if ($stmt->execute()) {
-                // Retrieve the generated card_id
+                
                 $card_id = $stmt->insert_id;
                 
-                // Update member points if member_id is not empty
+                
                 if (!empty($member_id)) {
                     $update_points_sql = "UPDATE Memberships SET points = points + ? WHERE member_id = ?";
                     $stmt = $link->prepare($update_points_sql);
                     $stmt->bind_param("ii", $points, $member_id);
                     if ($stmt->execute()) {
-                        //echo "Points updated successfully!";
+                        
                     } else {
                         echo "Error updating points: " . $stmt->error;
                     }
                 }
 
-                // Prepare and execute the SQL query to update Bills table with payment details
+                
                 $update_bill_sql = "UPDATE Bills SET card_id = ?, payment_method = ?, payment_time = ?,
                                     staff_id = ?, member_id = ?, reservation_id = ? WHERE bill_id = ?";
                 
@@ -160,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
     </div>
-    </div><!-- comment -->
+    </div>
 
 
 <?php include '../inc/dashFooter.php'; ?>
